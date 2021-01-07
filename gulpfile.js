@@ -288,7 +288,7 @@ function writeJsRequiresFile(cb) {
     jsRequiresList.push(src);
   });
   let msg = `\n/*!*${doNotEditMsg.replace(/\n /gm,'\n * ').replace(/\n\n$/,'\n */\n\n')}`;
-  let jsRequires = msg + '/* global require */\n\n';
+  let jsRequires = msg + '\n\n';
   jsRequiresList.forEach(function(src) {
     jsRequires += `require('${src}');\n`;
   });

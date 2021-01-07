@@ -1,6 +1,8 @@
-// В этом файле должны быть стили для БЭМ-блока page-footer, его элементов,
+// В этом файле должны быть стили для БЭМ-блока pugTut, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-.page-footer {
+.pugTut {
+
+  $block-name:                &; // #{$block-name}__element
 }

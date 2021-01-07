@@ -2,11 +2,10 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, $media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-$transition-time:             0.3s !default;
+$transition-time: 0.3s !default;
 
 .to-top {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   position: fixed;
   z-index: 99;
