@@ -45,7 +45,7 @@
 
   &__body {
 
-    & > *:last-child { // stylelint-disable-line  selector-combinator-blacklist
+    & > *:last-child { // stylelint-disable-line
       margin-bottom: 0;
     }
   }

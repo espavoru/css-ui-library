@@ -90,7 +90,7 @@
       display: none;
     }
 
-    & > *:last-child { // stylelint-disable-line  selector-combinator-blacklist
+    & > *:last-child { // stylelint-disable-line  selector-combinator-disallowed-list
       margin-bottom: 0;
     }
 
