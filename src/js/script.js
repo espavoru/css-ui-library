@@ -1,8 +1,12 @@
-// const ready = require('./utils/documentReady.js');
+(() => {
+  const form = document.querySelector('.page__form');
+  const list = document.querySelector('.page__list');
+  const input = document.querySelector('.page__input');
 
-// ready(function(){
-//   console.log('DOM героически построен!');
-// });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
 
-// const $ = require('jquery');
-// $( document ).ready(function() {});
+    console.log(input.value);
+    console.log(list);
+  })
+})()
