@@ -6,7 +6,15 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    console.log(input.value);
-    console.log(list);
+    const item = document.createElement('div');
+    item.classList.add('page__list-item');
+    item.textContent = input.value;
+
+    list.appendChild(item);
+    input.value = '';
+
+    item.addEventListener('click', () => {
+      item.remove();
+    })
   })
 })()

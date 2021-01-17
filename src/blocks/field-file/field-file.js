@@ -1,5 +1,3 @@
-/* global document */
-
 const closest = require('closest');
 const ready = require('../../js/utils/documentReady.js');
 
