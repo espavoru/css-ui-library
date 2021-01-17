@@ -1,5 +1,3 @@
-/* global document window console */
-
 const $ = require('jquery');
 
 // Демо событий модальных окон

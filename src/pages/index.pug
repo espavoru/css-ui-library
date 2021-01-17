@@ -7,12 +7,20 @@ block meta
 //- block append head
 //-   link(rel='stylesheet', href='css/some.css')
 
-block nav
-  +main-nav('10')
+//- block nav
+//-   +main-nav('10')
 
 block content
-  h1 Заголовок
-  p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].
+  h1 Simple list
+  //- p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].
+
+  .page__list
+
+  form.page__form(action='#', method='GET')
+    label.page__label(for='item-input') New Item
+    input(class='page__input', id='item-input')
+    button(class='page__submit', type='submit') Add Item
+
 
 //- block footer
 //-   p footer
