@@ -36,6 +36,9 @@ let config = {
     'src': 'src/',
     'build': 'build/',
     'blocks': 'src/blocks/'
+  },
+  'optionsGHpages': {
+    'remote': 'midi-piano', // options for github-pages
   }
 };
 

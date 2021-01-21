@@ -1,4 +1,4 @@
-/* global exports process console __dirname Buffer */
+// /* global exports process console dirname Buffer */
 /* eslint-disable no-console */
 'use strict';
 
@@ -69,7 +69,6 @@ let postCssPlugins = [
   inlineSVG(),
   objectFitImages(),
 ];
-
 
 function writePugMixinsFile(cb) {
   let allBlocksWithPugFiles = getDirectories('pug');
@@ -349,10 +348,9 @@ function reload(done) {
 }
 
 function deploy(cb) {
-  ghpages.publish(path.join(process.cwd(), dir.build), cb);
+  ghpages.publish(path.join(process.cwd(), dir.build), nth.config.optionsGHpages, cb);
 }
 exports.deploy = deploy;
-
 
 function serve() {
 
