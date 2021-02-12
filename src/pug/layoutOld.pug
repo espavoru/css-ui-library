@@ -1,21 +1,24 @@
 //- Стандартный шаблон страницы
-block config
-  include config.pug
 
 include mixins.pug
 
 doctype html
-html(class='page no-js', lang=lang)
+html(class='page no-js', lang='ru')
 
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+
     //- Edge и ряд мобильных браузеров слишком умны. Отключим это.
     meta(name='format-detection', content='telephone=no')
     meta(name='format-detection', content='date=no')
     meta(name='format-detection', content='address=no')
     meta(name='format-detection', content='email=no')
     meta(content='notranslate', name='google')
+
+    //- Предзагрузка шрифтов или иных ресурсов
+    //- link(rel='preload', href='fonts/Bloggersans.woff2', as='font', type='font/woff2', crossorigin='anonymous')
+
     //- Фавиконки (https://realfavicongenerator.net)
     //- link(rel='apple-touch-icon', sizes='180x180', href='/img/favicon/apple-touch-icon.png')
     //- link(rel='icon', type='image/png', sizes='32x32', href='/img/favicon/favicon-32x32.png')
@@ -26,18 +29,11 @@ html(class='page no-js', lang=lang)
     //- meta(name='theme-color', content='#000')
     //- meta(name='msapplication-navbutton-color', content='#000')
     //- meta(name='apple-mobile-web-app-status-bar-style', content='#000')
-    block meta
-      title #{currentTitle} | Pink
-      meta(name='description', content=currentDescription)
 
-    block fonts
-      if GoogleFonts
-        link(rel='preconnect', href='https://fonts.gstatic.com')
-        link(rel='stylesheet', href=`https://fonts.googleapis.com/css2?family=${GoogleFonts}:wght@${fontWeight}&display=swap`)
+    block meta
+      title Home
 
     block head
-      if Bootstrap4
-        //- link for Bootstrap 4 css styles
       link(rel='stylesheet', href='css/style.css')
       script
         include ../js/head-script.js
@@ -48,18 +44,19 @@ html(class='page no-js', lang=lang)
     .page__inner
       .page__content
 
-        block header
-          +page-header()
-            //- logo here
-            block nav
+        +page-header()
+          //- +logo('/')
+          //-   img(src='img/demo-logo.svg', alt='Logo', width='64', height='15')
+          block nav
 
         block content
-          h1 #{currentTitle}
+          p Content
 
-        block footer
-          +page-footer()
+      .page__footer-wrapper
+        +page-footer()
+          block footer
+            //- p «Подвал»
+            //- p Контактный телефон: #[a(href='tel:+70000000000') +7 000 000 00 00]
 
     block page-bottom
-      if Bootstrap4
-        //- link to Bootstrap scripts
       script(src='js/bundle.js')
