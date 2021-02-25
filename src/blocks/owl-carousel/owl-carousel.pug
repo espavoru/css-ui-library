@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (owl-carousel)
+
+mixin owl-carousel(data, mods)
+
+  //- Принимает:
+  //-   data    {object} - данные
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +owl-carousel('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' owl-carousel--' + modsList[i].trim();
+      }
+    }
+
+  .owl-carousel(class=allMods)&attributes(attributes)
+    block

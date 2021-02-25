@@ -69,16 +69,16 @@ $font-family--monospace:      SFMono-Regular, Menlo, Monaco, Consolas, Liberatio
 
 $screen-xs:                   0;
 $screen-sm:                   480px;
-$screen-md:                   660px;
-$screen-lg:                   960px;
+$screen-md:                   768px;
+$screen-lg:                   992px;
 $screen-xl:                   1200px;
 $screen-xxl:                  1800px;
 
 $container-sm:                100%;
-$container-md:                $screen-md;
-$container-lg:                $screen-lg - 20;
-$container-xl:                $screen-xl - 240;
-$container-xxl:               $screen-xxl - 840;
+$container-md:                100%;
+$container-lg:                $screen-lg - 30;
+$container-xl:                $screen-xl - 30;
+$container-xxl:               $screen-xxl - 30;
 
 
 
@@ -92,7 +92,7 @@ $retina-dppx:                 1.5dppx;
 // Модульная сетка
 
 $grid-columns:                12;
-$grid-gutter-width:           0;
+$grid-gutter-width:           30px;
 
 
 

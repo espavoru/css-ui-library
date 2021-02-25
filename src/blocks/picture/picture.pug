@@ -4,9 +4,20 @@ mixin picture(data, mods)
 
   //- Принимает:
   //-   data    {object} - данные
+  //-     -img  {string} = img name
+  //-     -alt  {string} = img alt
+  //-     -lg   {boolean} = lg breakpoint
+  //-     -md   {boolean} = md breakpoint
+  //-     -ext  {string} = img extension (.png .jpg .svg)
   //-   mods    {string} - список модификаторов
   //- Вызов:
-        +picture('Текст', 'some-mod')
+        +picture({
+          'img': 'hero',
+          'alt': 'alt',
+          'lg': true,
+          'md': true,
+          'ext': jpg
+        })
 
   -
     // список модификаторов
@@ -19,15 +30,19 @@ mixin picture(data, mods)
     }
     data = data || {}
     data.img = data.img || 'test'
+    data.alt = typeof(data.alt) == 'undefined' ? 'image' : data.alt
     data.lg = typeof(data.lg) == 'undefined' ? true : data.lg
     data.md = typeof(data.md) == 'undefined' ? true : data.md
+    data.ext = typeof(data.ext) == 'undefined' ? 'jpg' : data.ext
 
   picture.picture(class=allMods)&attributes(attributes)
+
     if (typeof(data.lg) !== 'undefined' && data.lg)
       source(media=`(min-width: ${screenLg})`, type='image/webp', srcset=`img/${data.img}-lg.webp, img/${data.img}-lg@2x.webp 2x`)
-      source(media=`(min-width: ${screenLg})`, type='image/jpg', srcset=`img/${data.img}-lg.jpg, img/${data.img}-lg@2x.jpg 2x`)
+      source(media=`(min-width: ${screenLg})`, type=`image/${data.ext}`, srcset=`img/${data.img}-lg.${data.ext}, img/${data.img}-lg@2x.${data.ext} 2x`)
     if (typeof(data.md) !== 'undefined' && data.md)
       source(media=`(min-width: ${screenMd})`, type='image/webp', srcset=`img/${data.img}-md.webp, img/${data.img}-md@2x.webp 2x`)
-      source(media=`(min-width: ${screenMd})`, type='image/jpg', srcset=`img/${data.img}-md.jpg, img/${data.img}-md@2x.jpg 2x`)
-    source(media=`(min-width: ${screenSm})`, type='image/webp', srcset=`img/${data.img}-sm.webp, img/${data.img}-sm@2x.webp 2x`)
-    img.upload__img(alt='Img to upload', width='320', src=`img/${data.img}-sm.jpg`, srcset=`img/${data.img}-sm@2x.jpg 2x`)
+      source(media=`(min-width: ${screenMd})`, type=`image/${data.ext}`, srcset=`img/${data.img}-md.${data.ext}, img/${data.img}-md@2x.${data.ext} 2x`)
+    if (typeof(data.ext) !== 'undefined' && data.ext != 'svg')
+      source(media=`(min-width: ${screenSm})`, type='image/webp', srcset=`img/${data.img}-sm.webp, img/${data.img}-sm@2x.webp 2x`)
+      img.picture__img(alt=`${data.alt}`, width='320', src=`img/${data.img}-sm.${data.ext}`, srcset=`img/${data.img}-sm@2x.${data.ext} 2x`)

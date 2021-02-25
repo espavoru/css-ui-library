@@ -9,6 +9,7 @@ let config = {
   ],
   'alwaysAddBlocks': [
     'modernizr',
+    // 'owl-carousel',
     // 'sprite-svg',
     // 'sprite-png',
     // 'object-fit-polyfill',
@@ -28,7 +29,7 @@ let config = {
     './script.js',
   ],
   'addAssets': {
-    'src/img/demo-*.{png,svg,jpg,jpeg}': 'img/',
+    // 'src/img/demo-*.{png,svg,jpg,jpeg}': 'img/',
     // 'src/fonts/demo-empty-open-sans.woff2': 'fonts/',
     // 'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'img/favicon',
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'img/',

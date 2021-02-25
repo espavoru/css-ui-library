@@ -60,6 +60,10 @@ html(class='page no-js', lang=lang)
           +page-footer()
 
     block page-bottom
+      if jQuery
+        script(defer type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+
       if Bootstrap4
         //- link to Bootstrap scripts
-      script(src='js/bundle.js')
+
+      script(defer src='js/bundle.js')
