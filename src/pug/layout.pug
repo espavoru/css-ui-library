@@ -27,13 +27,15 @@ html(class='page no-js', lang=lang)
     //- meta(name='msapplication-navbutton-color', content='#000')
     //- meta(name='apple-mobile-web-app-status-bar-style', content='#000')
     block meta
-      title #{currentTitle} | Pink
+      title #{currentTitle} | Sitename
       meta(name='description', content=currentDescription)
 
     block fonts
       if GoogleFonts
         link(rel='preconnect', href='https://fonts.gstatic.com')
         link(rel='stylesheet', href=`https://fonts.googleapis.com/css2?family=${GoogleFonts}:wght@${fontWeight}&display=swap`)
+        //- FontAwesome
+      //- link(rel='stylesheet', href=`https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css`)
 
     block head
       if Bootstrap4
