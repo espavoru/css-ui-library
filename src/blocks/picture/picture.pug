@@ -1,4 +1,8 @@
-//- Все примеси в этом файле должны начинаться c имени блока (picture)
+//- Пакетная обработка всех файлов из папки Work\Assets\Input в Photoshop
+//- В панели с actions отметить check нужные параметры сохранения (размер, формат и тп)
+//- Hot key PS 'F2' 'batch...' Выбрать входную папку Assets\Input напр.
+//- Выбрать исходящую папку напр. Work\Assets\Output\img\webp\320p
+//- Прописать нужную маску имени файла, напр. airpods-01-320p . Всё.
 
 mixin picture(data, mods)
 
@@ -9,15 +13,15 @@ mixin picture(data, mods)
   //-     -lg   {boolean} = lg breakpoint
   //-     -md   {boolean} = md breakpoint
   //-     -ext  {string} = img extension (.png .jpg .svg)
-  //-   mods    {string} - список модификаторов
+  //-   mods    {string} - extra class for <img>
   //- Вызов:
-        +picture({
-          'img': 'hero',
-          'alt': 'alt',
-          'lg': true,
-          'md': true,
-          'ext': 'jpg'
-        })
+    +picture({
+      'img': 'airpods-01',
+      'alt': 'AirPods',
+      'lg': false,
+      'md': false,
+      'ext': 'png'
+    }, 'airpods__img')
 
   -
     // список модификаторов
@@ -25,7 +29,7 @@ mixin picture(data, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' picture--' + modsList[i].trim();
+        allMods = allMods + '' + modsList[i].trim();
       }
     }
     data = data || {}
@@ -35,14 +39,14 @@ mixin picture(data, mods)
     data.md = typeof(data.md) == 'undefined' ? true : data.md
     data.ext = typeof(data.ext) == 'undefined' ? 'jpg' : data.ext
 
-  picture.picture(class=allMods)&attributes(attributes)
+  picture.picture&attributes(attributes)
 
     if (typeof(data.lg) !== 'undefined' && data.lg)
-      source(media=`(min-width: ${screenLg})`, type='image/webp', srcset=`img/${data.img}-lg.webp, img/${data.img}-lg@2x.webp 2x`)
-      source(media=`(min-width: ${screenLg})`, type=`image/${data.ext}`, srcset=`img/${data.img}-lg.${data.ext}, img/${data.img}-lg@2x.${data.ext} 2x`)
+      source(media=`(min-width: ${screenLg})`, type='image/webp', srcset=`img/${data.img}-1280p.webp, img/${data.img}-2560p.webp 2x`)
+      source(media=`(min-width: ${screenLg})`, type=`image/${data.ext}`, srcset=`img/${data.img}-1280p.${data.ext}, img/${data.img}-2560p.${data.ext} 2x`)
     if (typeof(data.md) !== 'undefined' && data.md)
-      source(media=`(min-width: ${screenMd})`, type='image/webp', srcset=`img/${data.img}-md.webp, img/${data.img}-md@2x.webp 2x`)
-      source(media=`(min-width: ${screenMd})`, type=`image/${data.ext}`, srcset=`img/${data.img}-md.${data.ext}, img/${data.img}-md@2x.${data.ext} 2x`)
-    if (typeof(data.ext) !== 'undefined' && data.ext != 'svg')
-      source(media=`(min-width: ${screenSm})`, type='image/webp', srcset=`img/${data.img}-sm.webp, img/${data.img}-sm@2x.webp 2x`)
-      img.picture__img(alt=`${data.alt}`, width='320', src=`img/${data.img}-sm.${data.ext}`, srcset=`img/${data.img}-sm@2x.${data.ext} 2x`)
+      source(media=`(min-width: ${screenMd})`, type='image/webp', srcset=`img/${data.img}-640p.webp, img/${data.img}-1280p.webp 2x`)
+      source(media=`(min-width: ${screenMd})`, type=`image/${data.ext}`, srcset=`img/${data.img}-640p.${data.ext}, img/${data.img}-1280p.${data.ext} 2x`)
+    if (typeof(data.ext) !== 'undefined')
+      source(media=`(min-width: ${screenSm})`, type='image/webp', srcset=`img/${data.img}-320p.webp, img/${data.img}-640p.webp 2x`)
+      img(class=allMods, alt=`${data.alt}`, width='320', src=`img/${data.img}-320p.${data.ext}`, srcset=`img/${data.img}-640p.${data.ext} 2x`)
