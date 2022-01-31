@@ -66,11 +66,10 @@ body {
   margin: 0;
   word-break: break-word;
   font-family: $font-family;
-  font-size: $font-size;
   line-height: $line-height;
   text-align: left;
-  color: $text-color;
-  background-color: $body-bg;
+  color: #eee;
+  background-color: #444;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
