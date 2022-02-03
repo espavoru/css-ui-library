@@ -5,4 +5,7 @@
 .picture {
 
   $block-name:                &; // #{$block-name}__element
+
+  width: 100%;
+  text-align: center;
 }
