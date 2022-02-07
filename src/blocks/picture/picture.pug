@@ -11,15 +11,13 @@ mixin picture(data, mods)
   //-     -img  {string} = img name
   //-     -alt  {string} = img alt
   //-     -lg   {boolean} = lg breakpoint
-  //-     -md   {boolean} = md breakpoint
-  //-     -ext  {string} = img extension (.png .jpg .svg)
+  //-     -ext  {string} = img extension (.png .jpg)
   //-   mods    {string} - extra class for <img>
   //- Вызов:
     +picture({
       'img': 'block_name-01',
       'alt': 'Block_name',
       'lg': false,
-      'md': false,
       'ext': 'png'
     }, 'block_name__img')
 
@@ -36,7 +34,6 @@ mixin picture(data, mods)
     data.img = data.img || 'test'
     data.alt = typeof(data.alt) == 'undefined' ? 'image' : data.alt
     data.lg = typeof(data.lg) == 'undefined' ? true : data.lg
-    data.md = typeof(data.md) == 'undefined' ? true : data.md
     data.ext = typeof(data.ext) == 'undefined' ? 'jpg' : data.ext
 
   picture.picture&attributes(attributes)
@@ -44,9 +41,6 @@ mixin picture(data, mods)
     if (typeof(data.lg) !== 'undefined' && data.lg)
       source(media=`(min-width: ${screenLg})`, type='image/webp', srcset=`img/${data.img}-1280p.webp, img/${data.img}-2560p.webp 2x`)
       source(media=`(min-width: ${screenLg})`, type=`image/${data.ext}`, srcset=`img/${data.img}-1280p.${data.ext}, img/${data.img}-2560p.${data.ext} 2x`)
-    if (typeof(data.md) !== 'undefined' && data.md)
-      source(media=`(min-width: ${screenMd})`, type='image/webp', srcset=`img/${data.img}-640p.webp, img/${data.img}-1280p.webp 2x`)
-      source(media=`(min-width: ${screenMd})`, type=`image/${data.ext}`, srcset=`img/${data.img}-640p.${data.ext}, img/${data.img}-1280p.${data.ext} 2x`)
     if (typeof(data.ext) !== 'undefined')
-      source(media=`(min-width: ${screenSm})`, type='image/webp', srcset=`img/${data.img}-320p.webp, img/${data.img}-640p.webp 2x`)
-      img(class=allMods, alt=`${data.alt}`, width='320', src=`img/${data.img}-320p.${data.ext}`, srcset=`img/${data.img}-640p.${data.ext} 2x`)
+      source(media=`(min-width: ${screenSm})`, type='image/webp', srcset=`img/${data.img}-640p.webp, img/${data.img}-1280p.webp 2x`)
+      img(class=allMods, alt=`${data.alt}`, width='640', src=`img/${data.img}-640p.${data.ext}`, srcset=`img/${data.img}-1280p.${data.ext} 2x`)
