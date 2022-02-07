@@ -1,0 +1,165 @@
+// В этом файле должны быть стили для БЭМ-блока spinner, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.page__content {display: none;} // stylelint-disable-line
+
+.spinner {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  transition: all 1s;
+  background-color: #262626;
+
+  #{$block-name}__hide & {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__hide .page__content {
+    display: block;
+  }
+
+  &__circles {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+
+    opacity: 0;
+    visibility: hidden;
+    animation: displayCircles 2s;
+  }
+
+  &__circle {
+    transform-origin: 4rem 4rem;
+    animation: circles 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-top: -0.4rem;
+      margin-left: -0.4rem;
+      border-radius: 50%;
+      background-color: #c29525;
+    }
+
+    &:nth-child(1) { // stylelint-disable-line
+      animation-delay: -0.036s;
+
+      &::after {
+        top: 6.3rem;
+        left: 6.3rem;
+      }
+    }
+
+
+    &:nth-child(2) { // stylelint-disable-line
+      animation-delay: -0.072s;
+
+      &::after {
+        top: 6.8rem;
+        left: 5.6rem;
+      }
+    }
+
+    &:nth-child(3) { // stylelint-disable-line
+      animation-delay: -0.108s;
+
+      &::after {
+        top: 7.1rem;
+        left: 4.8rem;
+      }
+    }
+
+    &:nth-child(4) { // stylelint-disable-line
+      animation-delay: -0.144s;
+
+      &::after {
+        top: 7.2rem;
+        left: 4rem;
+      }
+    }
+
+    &:nth-child(5) { // stylelint-disable-line
+      animation-delay: -0.18s;
+
+      &::after {
+        top: 7.1rem;
+        left: 3.2rem;
+      }
+    }
+
+    &:nth-child(6) { // stylelint-disable-line
+      animation-delay: -0.216s;
+
+      &::after {
+        top: 6.8rem;
+        left: 2.4rem;
+      }
+    }
+
+    &:nth-child(7) { // stylelint-disable-line
+      animation-delay: -0.252s;
+
+      &::after {
+        top: 6.3rem;
+        left: 1.7rem;
+      }
+    }
+
+    &:nth-child(8) { // stylelint-disable-line
+      animation-delay: -0.288s;
+
+      &::after {
+        top: 5.6rem;
+        left: 1.2rem;
+      }
+    }
+  }
+}
+
+@keyframes circles {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes displayCircles {
+
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  25% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

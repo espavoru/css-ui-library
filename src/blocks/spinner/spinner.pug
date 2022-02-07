@@ -1,0 +1,31 @@
+//- Все примеси в этом файле должны начинаться c имени блока (spinner)
+
+mixin spinner(data, mods)
+
+  //- Принимает:
+  //-   data    {object} - данные
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +spinner('Текст', 'some-mod') // add outside .page__content
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' spinner--' + modsList[i].trim();
+      }
+    }
+
+  .spinner(class=allMods)&attributes(attributes)
+    .spinner__circles
+      .spinner__circle
+      .spinner__circle
+      .spinner__circle
+      .spinner__circle
+      .spinner__circle
+      .spinner__circle
+      .spinner__circle
+      .spinner__circle
+  ///.spinner
