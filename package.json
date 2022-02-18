@@ -72,6 +72,7 @@
     "postcss-inline-svg": "^5.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "pug-lint": "^2.6.0",
+    "smart-grid": "^2.1.2",
     "stylelint": "^13.9.0",
     "stylelint-order": "^4.0.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
