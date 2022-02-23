@@ -39,27 +39,27 @@
       -webkit-text-stroke-color: #fff;
       color: transparent;
 
-      animation: animate 60s linear infinite;
+      animation: animate1 60s linear infinite;
     }
 
     #{$block-name}__inner--right & {
       color: #fff;
-      animation: animate 60s linear infinite;
+      animation: animate1 60s linear infinite;
     }
   }
-}
 
-@keyframes animate {
+  @keyframes animate1 {
 
-  0% {
-    transform: translateX(0);
-  }
+    0% {
+      transform: translateX(0);
+    }
 
-  90% {
-    transform: translateX(-100%);
-  }
+    90% {
+      transform: translateX(-100%);
+    }
 
-  100% {
-    transform: translateX(0);
+    100% {
+      transform: translateX(0);
+    }
   }
 }
