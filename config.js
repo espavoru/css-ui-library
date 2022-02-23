@@ -42,7 +42,7 @@ let config = {
     'blocks': 'src/blocks/'
   },
   'optionsGHpages': {
-    'remote': 'git_remote', // options for github-pages
+    'remote': 'css-ui-library', // options for github-pages
   }
 };
 

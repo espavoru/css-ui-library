@@ -41,11 +41,13 @@
   }
 
   &__content {
+    @include wrapper-full;
     flex-grow: 1;
 
     ol {
       @include row-flex;
       justify-content: center;
+      padding: 0;
     }
 
     li {
@@ -85,7 +87,7 @@ body {
   line-height: $line-height;
   text-align: left;
   color: #eee;
-  background-color: #444;
+  // background-color: #444;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
