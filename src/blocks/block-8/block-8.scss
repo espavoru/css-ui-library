@@ -1,0 +1,83 @@
+// В этом файле должны быть стили для БЭМ-блока block-8, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.block-8 {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #add8e6;
+
+  &__inner {
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    padding: 5px;
+
+    background-color: #fff;
+    animation: rotate8 2s ease-in-out infinite;
+  }
+
+  &__item {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+
+    background-color: #add8e6;
+    animation: move8 2s ease-in-out infinite;
+  }
+}
+
+@keyframes rotate8 {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move8 {
+
+  0% {
+    width: 40px;
+    margin-left: 0;
+  }
+
+  25% {
+    width: 40px;
+    margin-left: 50px;
+  }
+
+  50% {
+    width: 40px;
+    margin-left: 0;
+  }
+
+  75% {
+    width: 40px;
+    margin-left: 50px;
+  }
+
+  100% {
+    width: 40px;
+    margin-left: 0;
+  }
+}
