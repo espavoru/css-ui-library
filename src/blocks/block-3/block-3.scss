@@ -1,0 +1,65 @@
+// В этом файле должны быть стили для БЭМ-блока block-3, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.block-3 {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    background: #91bbcc;
+    overflow: hidden;
+
+    &--left {
+      background-image: url('https://picsum.photos/seed/hamm/1920');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 20rem;
+    white-space: nowrap;
+
+    #{$block-name}__inner--left & {
+      position: relative;
+      left: 100%;
+
+      -webkit-text-stroke: 2px;
+      -webkit-text-stroke-color: #fff;
+      color: transparent;
+
+      animation: animate 60s linear infinite;
+    }
+
+    #{$block-name}__inner--right & {
+      color: #fff;
+      animation: animate 60s linear infinite;
+    }
+  }
+}
+
+@keyframes animate {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  90% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
