@@ -1,0 +1,58 @@
+// В этом файле должны быть стили для БЭМ-блока block-7, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.block-7 {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #e74c3c;
+
+  &__loader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95px;
+    height: 100px;
+  }
+
+  &__line {
+    width: 15px;
+    height: 50px;
+
+    background-color: #eee;
+    animation: animate7 1.5s ease infinite;
+
+    &--2 {
+      animation-delay: 0.3s;
+    }
+
+    &--3 {
+      animation-delay: 0.6s;
+    }
+
+    &--4 {
+      animation-delay: 0.9s;
+    }
+
+    &--5 {
+      animation-delay: 1.2s;
+    }
+  }
+}
+
+@keyframes animate7 {
+
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(2);
+  }
+}
